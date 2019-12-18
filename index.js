@@ -89,7 +89,7 @@ function makeSmartPerson(name) {
     },
     speak: function (){
       return `Hello, my name is ${name}`;
-    },
+    }
   }
 }
 
@@ -131,7 +131,7 @@ function get3rdCar(inventory) {
   const the3rd = inventory.find((item, index) => {
     return index === 2 // we use 2 because index is zero-based.
   })
-  return `The car is a ${the3rd.car_make} ${the3rd.car_model}`
+  return `The car is a ${the3rd.car_make} ,${the3rd.car_model}`
 }
 
 // 👇 COMPLETE YOUR WORK BELOW 👇
@@ -153,7 +153,7 @@ function get3rdCar(inventory) {
 */
 function getCarInfoByIndex(inventory, index) {
   
-  return `This is a ${inventory[index].car_make} ${inventory[index].car_model}`;
+  return `This is a ${inventory[index].car_make} ,${inventory[index].car_model}`;
 }
 
 /**
@@ -168,8 +168,8 @@ function getCarInfoByIndex(inventory, index) {
  * it will return `This is a Lincoln Town Car`.
 */
 function getLastCarInfo(inventory) {
-  const lastCar = inventory[inventory.length -1];
-  return `This is a ${lastCar.car_make} ${lastCar.car_model}`
+
+  return `This is a ${inventory[inventory.length -1].car_make}, ${inventory[inventory.length -1].car_model}`
 
 }
 
@@ -188,9 +188,10 @@ function getLastCarInfo(inventory) {
 function getCarInfoById(inventory, id) {
   for (let i=0; i < inventory.length; i++){
     if (inventory[1].id === id){
-      return `This is a ${inventory[i].car_make} ${inventory[i].car_make}`
+      return `This is a ${inventory[i].car_make}, ${inventory[i].car_make}`
     }
   }
+  
 }
 
 /**
@@ -211,7 +212,7 @@ function sortCarInventory(inventory) {
     }
     return 0;
   }
-)
+)}
 
 /**
  * ### Challenge `getModelYears`
@@ -226,8 +227,9 @@ function getModelYears(inventory) {
   let newArray = [];
   for (let i = 0; i < inventory.length; i++){
     newArray.push(inventory[i].car_year);
-    return newArray;
+    
   }
+  return newArray;
 }
 
 /**                                                                       
@@ -243,12 +245,13 @@ function getModelYears(inventory) {
  * in the same order as they appear in the original inventory.
 */
 function getOlderCars(inventory,maxYear) {
-  const arrayTwo =[];
-  for(let i =0; i < inventory.length; i++){
+  let arrayTwo =[];
+  for(let i = 0; i < inventory.length; i++){
     if (inventory[i].car_year <= maxYear){
       arrayTwo.push(inventory[i]);
     }
   }
+  return arrayTwo;
 }
 
 /**
@@ -266,12 +269,13 @@ function getGermanCars(inventory) {
   let array3 = [];
   for(let i = 0; i < inventory.length; i++){
     if (inventory[i].car_make === "Audi" ||
-    inventory[i].car_make === "Mercedes Benz" ||
+    inventory[i].car_make === "Mercedes-Benz" ||
     inventory[i].car_make === "Volkswagen" ||
     inventory[i].car_make === "BMW" ) {
       array3.push(inventory[i]);
     }
   }
+  return array3;
 }
 
 /**
@@ -336,4 +340,3 @@ if (typeof exports !== 'undefined') {
   if (addFive) { module.exports.addFive = addFive }
   if (argTimesTwo) { module.exports.argTimesTwo = argTimesTwo }
 }
-
